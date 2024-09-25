@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ This piece of work is to enhance cardvalidator project functionality.     ~
+  ~                                                                           ~
+  ~ Author:    eomisore                                                       ~
+  ~ File:      cardvalidator.wsdl                                             ~
+  ~ Created:   25/09/2024, 00:30                                              ~
+  ~ Modified:  25/09/2024, 00:31                                              ~
+  ~                                                                           ~
+  ~ Copyright (c)  2024.  Aerosimo Ltd                                        ~
+  ~                                                                           ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a   ~
+  ~ copy of this software and associated documentation files (the "Software"),~
+  ~ to deal in the Software without restriction, including without limitation ~
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense,  ~
+  ~ and/or sell copies of the Software, and to permit persons to whom the     ~
+  ~ Software is furnished to do so, subject to the following conditions:      ~
+  ~                                                                           ~
+  ~ The above copyright notice and this permission notice shall be included   ~
+  ~ in all copies or substantial portions of the Software.                    ~
+  ~                                                                           ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,           ~
+  ~ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES           ~
+  ~ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND                  ~
+  ~ NONINFINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT                ~
+  ~ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,              ~
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING              ~
+  ~ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE                ~
+  ~ OR OTHER DEALINGS IN THE SOFTWARE.                                        ~
+  ~                                                                           ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+             xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:tns="https://aerosimo.com/api/ws/cardvalidator"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="https://aerosimo.com/api/ws/cardvalidator"
+             name="CardValidatorService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="https://aerosimo.com/api/ws/cardvalidator"
+                        schemaLocation="https://ominet.aerosimo.com:8443/cardvalidator/ws/cardvalidator?xsd=1"/>
+        </xsd:schema>
+    </types>
+    <message name="validateCard">
+        <part name="parameters" element="tns:validateCard"/>
+    </message>
+    <message name="validateCardResponse">
+        <part name="parameters" element="tns:validateCardResponse"/>
+    </message>
+    <portType name="CardValidator">
+        <operation name="validateCard">
+            <input wsam:Action="https://aerosimo.com/api/ws/cardvalidator/CardValidator/validateCardRequest" message="tns:validateCard"/>
+            <output wsam:Action="https://aerosimo.com/api/ws/cardvalidator/CardValidator/validateCardResponse" message="tns:validateCardResponse"/>
+        </operation>
+    </portType>
+    <binding name="ValidateCardPortBinding" type="tns:CardValidator">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="validateCard">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="CardValidatorService">
+        <port name="ValidateCardPort" binding="tns:ValidateCardPortBinding">
+            <soap12:address location="https://ominet.aerosimo.com:8443/cardvalidator/ws/cardvalidator"/>
+        </port>
+    </service>
+</definitions>
