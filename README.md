@@ -32,11 +32,23 @@
 
 # Card Validator Project
 
+![Project Cover.!](/img/cover.jpg "Card Validator Project")
+# Card Validation
+> *Validating a credit card refers to the process of running a computer algorithm
+> that performs calculations using a credit card's number.
+> When the algorithm shows that the card is valid, it means only that the card number
+> is among those that could potentially exist with a given credit card company.
+> For example, a random series of numbers would likely result in an invalid answer
+> from the program, while an actual card number, even from a card that has expired
+> or reached its credit limit, would show up as valid, since the number is one that
+> the credit card company issued.*
+
+---
 This project is a **Credit Card Validator** built using **core Java**. It validates credit card numbers using the **Luhn algorithm** and exposes **SOAP** web services. The project also includes a simple **JSP-based web interface** for user input and validation.
 
 ## Project Structure
 
-This `README.md` gives an overview of the project structure, dependencies, and instructions on how to build and deploy the application. It also includes brief explanations of the Luhn algorithm and the web services (SOAP and REST).
+This `README.md` gives an overview of the project structure, dependencies, and instructions on how to build and deploy the application. It also includes brief explanations of the Luhn algorithm and the web services.
 
 ## Features
 
@@ -46,11 +58,15 @@ This `README.md` gives an overview of the project structure, dependencies, and i
 
 ## Getting Started
 
+![Project Codes & Tasks.!](/img/code.jpg "Project Codes and Task")
+
+---
+
 ### Prerequisites
 
-- **Apache TomEE 10**: Make sure TomEE is installed and running.
-- **Java 23**: Ensure you have Java 23 installed as TomEE 10 targets Jakarta EE 10.
-- **Maven**: The project uses Maven for dependency management.
+>- **Apache TomEE 10**: Make sure TomEE is installed and running.
+>- **Java 23**: Ensure you have Java 23 installed as TomEE 10 targets Jakarta EE 10.
+>- **Maven**: The project uses Maven for dependency management with any IDE of choice.
 
 ### Dependencies
 

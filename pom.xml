@@ -91,6 +91,12 @@
     </developer>
   </developers>
 
+  <scm>
+    <url>https://github.com/aerosimo/cardvalidator.git</url>
+    <connection>git@github.com/aerosimo/cardvalidator.git</connection>
+    <developerConnection>https://ominet.aerosimo.com/svn/vault/java/trunk/cardvalidator</developerConnection>
+  </scm>
+
   <properties>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

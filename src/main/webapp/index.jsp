@@ -144,7 +144,8 @@
 
     <p>
         The current timestamp is:
-        <%=new java.util.Date()%></p>
+        <%=new java.util.Date()%>
+    </p>
 </div>
 
 </body>
